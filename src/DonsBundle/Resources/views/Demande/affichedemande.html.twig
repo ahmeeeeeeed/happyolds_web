@@ -1,0 +1,83 @@
+
+
+{% extends 'base1.html.twig' %}
+
+        {% block container %}
+            <div class="right_col" role="main">
+
+                <!-- travaille de backofice -->
+
+                {{ form (form) }}
+               <!-- <table class="table table-hover">
+                    <tr>
+
+                        <td>
+                            nom maison
+                        </td>
+                        <td>
+                            nom categorie demande
+                        </td>
+
+                        <td>
+                            Quantite Demande
+                        </td>
+                        <td>
+                            Description Demande
+                        </td>
+                        <td>
+                            Supprimer
+                        </td>
+                        <td>
+                            Modifier
+                        </td>
+
+
+
+                    </tr>
+                    <tr>
+                        {% for i in m %}
+                        <td>{{ i.idMaison.nomMaison }}</td>
+                        <td>{{ i.idDemandeCategorie.nomCategorie}}</td>
+                        <td>{{ i.quantiteDemande }}</td>
+                        <td>{{ i.descriptionDemande }}</td>
+                        <td><a href="{{ path('deletedemande',{'id':i.idDemande}) }}" >Supprimer</a></td>
+                        <td><a href="{{ path('modif',{'id':i.idDemande}) }}" >Modifier</a></td>
+                    </tr>
+                    {% endfor %}
+                </table>-->
+
+                <table class="table table-hover">
+                    <thead>
+                    <tr>
+                        <th scope="col">nom maison</th>
+                        <th scope="col">nom categorie</th>
+                        <th scope="col">Quantite Demande</th>
+                        <th scope="col">Description Demande</th>
+                        <th scope="col">Suppression</th>
+                        <th scope="col">Modification</th>
+
+                    </tr>
+                    </thead>
+                    <tbody>
+
+                    <tr>
+                        {% for i in m %}
+                        <td>{{ i.idMaison.nomMaison }}</td>
+                        <td>{{ i.idDemandeCategorie.nomCategorie}}</td>
+                        <td>{{ i.quantiteDemande }}</td>
+                        <td>{{ i.descriptionDemande }}</td>
+                        <td><a class="badge badge-danger" href="{{ path('deletedemande',{'id':i.idDemande}) }}" >Supprimer</a></td>
+                        <td><a class="badge badge-danger" href="{{ path('modifdemande',{'id':i.idDemande}) }}" >Modifier</a></td>
+
+                    </tr>
+
+
+                    </tbody>
+                    {% endfor %}
+
+                </table>
+
+
+            </div>
+
+        {% endblock %}

@@ -1,0 +1,86 @@
+activite_homepage:
+    path:     /
+    defaults: { _controller: ActiviteBundle:Default:index }
+
+ajouter_an:
+    path:     /ajoutean
+    defaults: { _controller: ActiviteBundle:Animateur:ajoutean }
+
+affiche_an:
+    path:     /affichean
+    defaults: { _controller: ActiviteBundle:Animateur:affichean }
+
+modifier_an:
+    path:     /editan/{id}
+    defaults: { _controller: ActiviteBundle:Animateur:updatean }
+
+supprimer_an:
+    path:     /delete/{id}
+    defaults: { _controller: ActiviteBundle:Animateur:deletean }
+
+change_ad:
+    path:     /editad/{id}
+    defaults: { _controller: ActiviteBundle:Animateur:changead }
+
+ajouter_ac:
+    path:     /ajoutecn/{id}
+    defaults: { _controller: ActiviteBundle:Activite:ajouteac }
+
+affiche_ac:
+    path:     /afficheac
+    defaults: { _controller: ActiviteBundle:Activite:afficheac }
+
+modifier_ac:
+    path:     /editac/{id}
+    defaults: { _controller: ActiviteBundle:Activite:updateac }
+
+supprimer_ac:
+    path:     /delete/{id}
+    defaults: { _controller: ActiviteBundle:Activite:deleteac }
+
+ajouter_c:
+    path:     /ajoutec
+    defaults: { _controller: ActiviteBundle:Categorie:ajoutec }
+
+affiche_c:
+    path:     /affichec
+    defaults: { _controller: ActiviteBundle:Categorie:affichec }
+
+supprimer_c:
+    path:     /deletec/{id}
+    defaults: { _controller: ActiviteBundle:Categorie:deletec }
+
+show_c:
+    path:     /showa/{id}
+    defaults: { _controller: ActiviteBundle:Activite:showac }
+
+list_activite:
+    path:     /listac
+    defaults: { _controller: ActiviteBundle:Activite:listac }
+
+detailed_activite:
+    path:     /detailedac/{id}
+    defaults: { _controller: ActiviteBundle:Activite:showdetailed }
+
+list_animateur:
+    path:     /listan
+    defaults: { _controller: ActiviteBundle:Animateur:affichelan }
+
+ajax_search:
+    path:     /search
+    defaults: { _controller: ActiviteBundle:Activite:search }
+
+affiche_lad:
+    path:     /affichelad
+    defaults: { _controller: ActiviteBundle:Activite:affichelad }
+
+
+
+
+
+
+
+
+
+
+

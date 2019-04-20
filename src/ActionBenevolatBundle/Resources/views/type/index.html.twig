@@ -1,0 +1,43 @@
+{% extends 'base1.html.twig' %}
+{#{% block header %} {% endblock %}#}
+{% block container %}
+    <div class="right_col" role="main">
+        <div class="">
+    <h1>La liste des catgories</h1>
+
+    <table class="table table-bordered">
+        <thead align="1">
+            <tr>
+                <th>Idtype</th>
+                <th>Categorie</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for type in types %}
+            <tr>
+                <td><a href="{{ path('show1', { 'idType': type.idType }) }}">{{ type.idType }}</a></td>
+                <td>{{ type.categorie }}</td>
+                <td>
+                    <ul>
+
+
+
+                            <a class="btn btn-primary" href="{{ path('edit1', { 'id': type.idType }) }}">Modifier</a>
+                        <a class="btn btn-danger" href="{{ path('delete1', { 'id': type.idType }) }}">Supprimer</a>
+
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+
+            <a class="btn btn-dark" href="{{ path('new1') }}">Ajouter une nouvelle categorie</a>
+
+    </ul>
+        </div>
+    </div>
+{% endblock %}

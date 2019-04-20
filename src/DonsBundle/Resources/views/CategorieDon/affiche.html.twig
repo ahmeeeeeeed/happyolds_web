@@ -1,0 +1,127 @@
+{% extends 'base1.html.twig' %}
+
+
+        {% block container %}
+            <script src="{{ asset('jquery/jquery.js') }}"></script>
+            <script>
+                $(function () {
+                $("#ajouter").click(function () {
+                    valid=true;
+                    if($("#nom").val()== ""){
+                        $("#nom").css("border-color","#FF0000");
+                        $("#erreur-message").text("veuillez remplir la catégorie");
+                        valid = false;
+
+                    }
+
+                    return valid;
+
+                });
+
+                    $("#supprimer").click(function () {
+
+                        if (confirm("Voulez-vous supprimer la catégorie  ?")) {
+                            // Clic sur OK
+                        }
+
+
+                    });
+
+
+                });
+
+            </script>
+
+
+
+            <div class="right_col" role="main">
+                <div class="">
+                    <!-- travaille de backofice -->
+
+
+                    <!--<form method="post">
+
+                        <div class="col-md-4 mb-3">
+                            <label for="validationCustom02">Nom Catégorie</label>
+                            <input type="text" class="form-control" name="categorie" id="validationCustom02" placeholder="Catégorie"  required>
+                            <div class="valid-feedback">
+                            </div>
+                            <button class="btn btn-primary" type="submit">Ajouter</button>
+
+                        </div>
+                    </form>-->
+
+
+                    <!------------------------------->
+                    <form class="needs-validation" novalidate  method="post">
+                        <div class="form-row">
+
+                            <div class="col-md-4 mb-3">
+                                <label for="validationCustom01">Nom Catégorie</label>
+                                <input type="text" class="form-control" name="categorie" id="nom" placeholder="Nom catégorie"  required>
+                                <div id="erreur-message" style="color:#FF0000;"></div>
+
+                            </div>
+
+
+                        </div>
+                        <div class="form-row">
+
+
+                        </div>
+                        <div class="form-group">
+                            <div class="form-check">
+
+                                <div class="invalid-feedback">
+                                    Ajouter une catégorie
+                                </div>
+                            </div>
+                        </div>
+                        <button class="btn btn-primary" type="submit" id="ajouter">Ajouter</button>
+                    </form>
+
+
+                    <h2>La liste des Categorie Demande</h2>
+
+                    <table class="table table-hover">
+                        <thead>
+                        <tr>
+                            <th scope="col">Nom Categorie</th>
+                            <th scope="col">Suppression</th>
+                            <th scope="col">Modification</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            {% for i in m %}
+                            <td>{{ i.nomCategorie }}</td>
+                            <td><a class="badge badge-success" id ="supprimer"  href="{{ path('deletecategorie',{'id':i.idCategorie}) }}" >Supprimer</a>
+
+
+                            </td>
+
+                            <td><a class="badge badge-success" href="{{ path('modif',{'id':i.idCategorie}) }}" >Modifier</a></td>
+
+                        </tr>
+                        {% endfor %}
+
+                        </tbody>
+                        <!--<div class="navigation">
+                            {#{{ knp_pagination_render(maisons) }}#}
+                            {#{{ knp_pagination_render(m) }}#}
+
+                        </div>-->
+                    </table>
+
+
+
+
+
+                </div>
+            </div>
+
+        {% endblock %}
+
+
+
+

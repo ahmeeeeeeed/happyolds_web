@@ -1,0 +1,138 @@
+<html>
+<head>
+
+</head>
+
+<body>
+<h1>
+    Dosser medical numero {{ dossier.idDossier }}
+</h1><br>
+
+<h3>Donnees peronnelles :</h3><br>
+        <table>
+            <tr>
+                <td>
+                        Nom :
+                </td>
+                <td>
+                    {{ resident.nomResident }}
+                </td>
+                <td>
+                    prenom :
+                </td>
+                <td>
+                    {{ resident.prenomResident }}
+                </td>
+
+
+            </tr>
+            <tr>
+                <td>
+                    Age :
+                </td>
+                <td>
+                    {{ resident.ageResident }}
+                </td>
+                <td>
+                    Sexe :
+                </td>
+                <td>
+                    {{ resident.sexeResident }}
+                </td>
+
+
+            </tr>
+            <tr>
+                <td>
+                    Nom maison de retraite :
+                </td>
+                <td>
+                    {{ resident.Maison.nomMaison }}
+                </td>
+                <td>
+                    Nombre de visite :
+                </td>
+                <td>
+                    {{ dossier.nbVisite }}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                   problemes de sante :
+                </td>
+                <td>
+                    {{ dossier.problemesSante }}
+                </td>
+
+            </tr>
+
+
+        </table>
+
+<br>
+<h3>Allergies et antecedant :</h3><br>
+<table>
+    {% for allergie in allergies %}
+    <tr>
+        <td>
+            Allergie :
+        </td>
+
+
+        <td>{{ allergie.descriptionAllergie }}</td>
+    </tr>
+    <tr>
+        <td>
+            Antecedants :
+        </td>
+
+
+        <td>{{ allergie.descriptionAllergie }}</td>
+    </tr>
+    <tr>
+        <td>
+            Date :
+        </td>
+
+
+        <td>{{ allergie.dateAllergies |date('Y-m-d') }}</td>
+    </tr>
+
+
+    {% endfor %}
+
+
+</table>
+<br>
+<h3>Prescription de medicaments :</h3><br>
+
+<table>
+    {% for prescription in prescriptions %}
+    <tr >
+        <td >
+           medicaments :
+
+        </td>
+
+
+        <td>
+            {{ prescription.descriptionMedicament }}
+        </td>
+    </tr>
+        <tr>
+
+        <td>
+            Date de debut de traitement :
+        </td>
+
+
+        <td>
+            {{ prescription.dateDebutTraitement |date('Y-m-d')  }}
+        </td>
+    </tr>
+    {% endfor %}
+
+</table>
+
+</body>
+</html>

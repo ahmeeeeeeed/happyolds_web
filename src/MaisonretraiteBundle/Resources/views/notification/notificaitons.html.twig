@@ -1,0 +1,19 @@
+{#{% extends 'base1.html.twig' %}#}
+{#{% block container %}#}
+    {##}
+{#{% endblock %}#}
+<div>
+
+    <h5> Notifications </h5>
+    <ul id="notifications">
+        {% for notif in notifications %}
+    <li>
+        {{ notif.title }}<br>
+        {{ notif.description }} <br>
+        {#<a href="{{ path(notif.route, notif.parameters) }}">See</a>#}
+    </li>
+    {% else %}
+    <li>No notifications!</li>
+{% endfor %}
+    </ul>
+</div>

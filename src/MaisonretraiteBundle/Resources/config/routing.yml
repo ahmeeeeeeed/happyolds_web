@@ -1,0 +1,58 @@
+maisonretraite_homepage:
+    path:     /
+    defaults: { _controller: MaisonretraiteBundle:Default:index }
+
+
+#MAISON
+ajouter_ma:
+    path:     /ajoutema
+    defaults: { _controller: MaisonretraiteBundle:Maison:ajoutema }
+
+affiche_ma:
+    path:     /affichema
+    defaults: { _controller: MaisonretraiteBundle:Maison:affichema }
+
+delete_ma:
+        path:     /deletema/{id}
+        defaults: { _controller: MaisonretraiteBundle:Maison:deletema }
+
+edit_ma:
+    path:     /editma/{id}
+    defaults: { _controller: MaisonretraiteBundle:Maison:editma }
+
+Maison_recherche:
+    path:     /recherche
+    defaults: { _controller: MaisonretraiteBundle:Maison::recherche }
+
+
+#RESIDENT
+ajout_re:
+    path:     /ajoutre
+    defaults: { _controller: MaisonretraiteBundle:Resident:ajoutre }
+
+affiche_re:
+    path:     /affichere
+    defaults: { _controller: MaisonretraiteBundle:Resident:affichere }
+
+
+
+delete_re:
+        path:     /deletere/{id}
+        defaults: { _controller: MaisonretraiteBundle:Resident:deletere }
+delete_reA:
+    path:     /deletere/{id}/{idMaison}
+    defaults: { _controller: MaisonretraiteBundle:Resident:deletereA }
+edit_re:
+    path:     /editre/{id}
+    defaults: { _controller: MaisonretraiteBundle:Resident:editre }
+validerR:
+    path:     /valider/{id}/{idMaison}
+    defaults: { _controller: MaisonretraiteBundle:Resident:valider }
+
+export:
+        path:     /export
+        defaults: { _controller: MaisonretraiteBundle:Resident:export }
+
+affiche_reA:
+    path:     /affichereA
+    defaults: { _controller: MaisonretraiteBundle:Resident:affichereA }

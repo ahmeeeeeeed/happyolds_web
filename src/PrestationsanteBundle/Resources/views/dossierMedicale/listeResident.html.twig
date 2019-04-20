@@ -1,0 +1,110 @@
+{% extends 'base.html.twig' %}
+ {% block other_stylesheet %}
+     <!-- data tables -->
+     <link href="{{ asset('datatables/datatables.min.css') }}" rel="stylesheet" type="text/css">
+     <link href="{{ asset('datatables/datatables.css') }}" rel="stylesheet" type="text/css">
+
+ {% endblock %}
+{% block container %}
+
+    {% block service %}{% endblock %}
+
+
+    <section  class="section-bg wow fadeInUp">
+    <div class="container">
+        <br>
+        <header class="section-header wow fadeInUp">
+
+            <h1>
+               Liste des résidents :
+            </h1>
+
+            <br>
+
+            <table  class="table table-bordered table-hover table-striped" id="myTable" >
+                <thead align="1">
+                <tr>
+                    <th> Nom </th>
+                    <th> Prénom </th>
+                    <th> Age </th>
+                    <th> Sexe </th>
+
+
+                    <th> Responsable </th>
+                    <th> Telephone responsable </th>
+                    <th> Maison</th>
+
+                    <th> Actions </th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for i in r %}
+                    <tr>
+                        <td>{{ i.nomResident }}</td>
+                        <td>{{ i.prenomResident }}</td>
+                        <td>{{ i.ageResident }}</td>
+                        <td>{{ i.sexeResident }}</td>
+
+                        <td>{{ i.responsable }}</td>
+                        <td>{{ i.telephoneResponsable }}</td>
+                        <td>{{ i.Maison.nomMaison }}</td>
+                        <td>
+                        {% set dossierexist = 0 %}
+                        {% for dossier in d %}
+
+                            {% if i.idResident == dossier.idResident.idResident %}
+                                {% set dossierexist =1 %}
+                            {% endif %}
+                        {% endfor %}
+
+                        {% if dossierexist==1 %}
+                            <a  class="btn btn-outline-primary" href="{{ path('afficher_dossier_par_resident',{'id':i.idResident })}}">afficher dossier</a>
+
+                        {% else %}
+                             <a  class="btn btn-primary" href="{{ path('ajouter_dossier',{'id':i.idResident })}}">ajouter dossier</a>
+
+                        {% endif %}
+
+                        {% set residentexist =0 %}
+                        {% for prestation in p %}
+
+                            {% if i.idResident == prestation.idResident.idResident %}
+                                {% set residentexist=1 %}
+                            {% endif %}
+                        {% endfor %}
+
+                        {% if residentexist==1 %}
+                            <a  class="btn btn-outline-success" href="{{ path('afficher_fiche_par_resident',{'id':i.idResident })}}">afficher fiche(s)</a>
+                        {% else %}
+                            <a  class="btn btn-success" href="{{ path('ajouter_fiche',{'idResident':i.idResident })}}">ajouter fiche</a>
+                        {% endif %}
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+
+           <!-- <ul>
+                <br>
+                <br>
+                <a class="btn btn-success" href="">Inscrivez Vous</a>
+
+                <br>
+                <br>
+
+            </ul>-->
+        </header>
+    </div>
+    </section>
+
+{% endblock %}
+{% block other_javascripts %}
+    <script type="text/javascript" src="{{ asset('datatables/datatables.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('datatables/datatables.min.js') }}"></script>
+    <script>
+        $(document).ready( function () {
+            $('#myTable').dataTable();
+
+        } );
+    </script>
+{% endblock %}

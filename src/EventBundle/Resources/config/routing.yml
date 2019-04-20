@@ -1,0 +1,51 @@
+event_homepage:
+    path:     /
+    defaults: { _controller: EventBundle:Default:index }
+
+newev:
+    path:     /admin/newev
+    defaults: { _controller: EventBundle:Evenement:ajoutev }
+
+afficheev:
+    path:     /afficheev
+    defaults: { _controller: EventBundle:Evenement:afficheev }
+
+afficheevadmin:
+    path:     /admin/afficheev
+    defaults: { _controller: EventBundle:Evenement:afficheevAdmin }
+
+editev:
+    path:     /admin/editev/{id}
+    defaults: { _controller: EventBundle:Evenement:updateev }
+
+deleteev:
+    path:     /admin/deleteev/{id}
+    defaults: { _controller: EventBundle:Evenement:deleteev }
+
+newspo:
+    path:     /admin/newspo
+    defaults: { _controller: EventBundle:SponsorEvenement:ajoutspo }
+
+affichespoadmin:
+    path:     /admin/affichespo
+    defaults: { _controller: EventBundle:SponsorEvenement:affichespoAdmin }
+
+affichespo:
+    path:     /affichespo
+    defaults: { _controller: EventBundle:SponsorEvenement:affichespo }
+
+editspo:
+    path:     /admin/editspo/{id_sp}
+    defaults: { _controller: EventBundle:SponsorEvenement:updatespo }
+
+deletespo:
+    path:     /admin/deletespo/{id_sp}
+    defaults: { _controller: EventBundle:SponsorEvenement:deletespo }
+
+participer:
+    path:     /participer/{evenementId}
+    defaults: { _controller: EventBundle:Evenement:participation }
+
+
+
+

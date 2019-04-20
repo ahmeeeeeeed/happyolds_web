@@ -1,0 +1,83 @@
+<html>
+<head>
+
+</head>
+
+<body>
+{% for i in f %}
+<h1>
+    La fiche numero {{ i.idFiche }}
+</h1><br>
+
+<h3>Donnees peronnelles :</h3><br>
+        <table>
+            <tr>
+                <td>
+                        Nom :
+                </td>
+                <td>
+                    {{ resident.nomResident }}
+                </td>
+                <td>
+                    prenom :
+                </td>
+                <td>
+                    {{ resident.prenomResident }}
+                </td>
+
+
+            </tr>
+            <tr>
+                <td>    </td><td>   </td><td>   </td><td>   </td>
+            </tr>
+            <tr>
+                <td>
+                    niveau de temperature :
+                </td>
+                <td>{{ i.niveauTemp }}°</td>
+
+            </tr>
+            <tr>
+                <td>    </td><td>   </td><td>   </td><td>   </td>
+            </tr>
+            <tr>
+                <td>
+                    Niveau de sucre :
+                </td>
+                <td>{{ i.niveauSec }}g</td>
+                <td><strong>Niveau de tension :</strong></td>
+            </tr>
+            <tr>
+                <td>{{ i.niveauTension }}cmHg</td>
+                <td ><strong>Groupe sanguin  :</strong></td>
+                <td>{{ i.groupeSanguin }}</td>
+
+
+            </tr>
+            <tr>
+                <td>    </td><td>   </td><td>   </td><td>   </td>
+            </tr>
+            <tr>
+                <td ><strong>Poids :</strong></td>
+                <td>{{ i.poidsResident }}Kg</td>
+                <td ><strong>Taille  :</strong></td>
+                <td>{{ i.tailleResident }}cm</td>
+            </tr>
+            <tr>
+                <td>    </td><td>   </td><td>   </td><td>   </td>
+            </tr>
+            <tr>
+                <td ><strong>Médicaments :</strong></td>
+                <td>{{ i.medicaments }}</td>
+                <td > <strong>Remarques :</strong></td>
+                <td>{{ i.remarquesFiche }}</td>
+
+            </tr>
+
+
+        </table>
+{% endfor %}
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+</body>
+</html>

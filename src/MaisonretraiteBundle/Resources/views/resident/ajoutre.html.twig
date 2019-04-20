@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block container %}
+<section id="contact" class="section-bg wow fadeInUp">
+    <div class="container">
+    <h1> Inscrivez votre résident ! </h1>
+    <br>
+
+    {{ form_start(form) }}
+    <br>
+
+    {{ form_widget(form) }}
+        <div style="display: none;">
+            {{ form_widget(form.dateResident) }}
+        </div>
+    <br>
+
+    <input type="submit" value="S'inscrire" class="btn btn-success" />
+    {{ form_end(form) }}
+<br>
+            <a class="btn btn-dark" href="{{ path('affiche_re') }} ">Annuler</a>
+    </div>
+</section>
+{% endblock %}

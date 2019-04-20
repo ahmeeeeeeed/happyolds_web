@@ -1,0 +1,96 @@
+{% extends 'base1.html.twig' %}
+{% block container %}
+
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.8.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+
+
+<div class="right_col" role="main">
+
+    <h1>Liste des Activites</h1>
+
+
+        <div class="title_right">
+
+            <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+                <div class="input-group">
+                    <input type="text" id="myInput" class="form-control" placeholder="Chercher...">
+
+                </div>
+            </div>
+
+
+    <table class="table table-striped projects">
+        <thead >
+            <tr>
+
+                <th>Nom </th>
+                <th>Date </th>
+                <th>Description </th>
+
+            </tr>
+        </thead>
+        <tbody>
+        {% for activite in activites %}
+        <tbody id="myTable">
+
+        <tr>
+
+
+
+                <td>{{ activite.nomActivite }}</td>
+                <td>{% if activite.dateActivite %}{{ activite.dateActivite|date('Y-m-d') }}{% endif %}</td>
+                <td>{{ activite.descriptionActivite }}</td>
+                <td>
+                    <a class="btn btn-round btn-warning btn-xs" href="{{ path('show_c',{'id':activite.idActivite })}}">Consulter</a>
+
+                </td>
+                <td>
+
+                    <ul>
+
+
+                        <li>
+                            <a class="btn btn-round btn-primary" href="{{ path('modifier_ac',{'id':activite.idActivite })}}">Modifier</a>
+                        </li>
+                        <li>
+                            <a class="btn btn-round btn-danger" href="{{ path('supprimer_ac',{'id':activite.idActivite })}}">Supprimer</a>
+                        </li>
+                    </ul>
+
+                </td>
+            </tr>
+        </tbody>
+        {% endfor %}
+        </tbody>
+
+    </table>
+
+    <ul>
+
+
+            <a class="btn btn-round btn-success" href="{{ path('affiche_lad') }}" >Liste des animateur</a>
+
+    </ul>
+
+    </div>
+
+</div>
+
+    <script>
+        $(document).ready(function(){
+            $("#myInput").on("keyup", function() {
+                var value = $(this).val().toLowerCase();
+                $("#myTable tr").filter(function() {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+        });
+    </script>
+
+{% endblock %}
+

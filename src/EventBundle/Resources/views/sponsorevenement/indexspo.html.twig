@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+{#{% block header %} {% endblock %}#}
+{% block container %}
+    <h1>liste des Sponsors evenements</h1>
+
+    <table>
+        <thead>
+            <tr>
+
+                <th>Nom </th>
+                <th>Prenom</th>
+                <th>Adresse</th>
+                <th>Tel</th>
+                <th>Description</th>
+
+            </tr>
+        </thead>
+        <tbody>
+        {%  for spevenement in spevenements  %}
+            <tr>
+
+                <td>{{ spevenement.nomSponsor }}</td>
+                <td>{{ spevenement.prenomSponsor }}</td>
+                <td>{{ spevenement.adresseSponsor }}</td>
+                <td>{{ spevenement.telSponsor }}</td>
+                <td>{{ spevenement.descriptionSponsoring }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

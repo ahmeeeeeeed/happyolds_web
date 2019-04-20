@@ -1,0 +1,65 @@
+{% extends 'base1.html.twig' %}
+{#{% block header %} {% endblock %}#}
+{% block container %}
+<div class="right_col" role="main">
+    <div class="">
+
+               <h1>Action de benevolat </h1>
+        <div class="shedule-search-box">
+            <form method="post" action="{{ path('recherchea')}}">
+                <input type="date"  name="search" placeholder="Recherche..." required="">
+                <button type="submit">Rechercher</button>
+            </form>
+        </div>
+
+    <table class="table table-bordered">
+        <thead align="1">
+        <tr>
+
+            <th>Date debut</th>
+            <th>Date fin</th>
+            <th>Description</th>
+            <th>Etat</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for actionBenevole in actionBenevoles %}
+            <tr>
+
+                <td>{% if actionBenevole.dateDAction %}{{ actionBenevole.dateDAction|date('Y-m-d') }}{% endif %}</td>
+                <td>{% if actionBenevole.dateFAction %}{{ actionBenevole.dateFAction|date('Y-m-d') }}{% endif %}</td>
+                <td>{{ actionBenevole.description }}</td>
+                <td>{{ actionBenevole.etat }}</td>
+                    <ul>
+<td>
+
+                      <a class="btn btn-primary" href="{{ path('valider',{'id':actionBenevole.idAction})}}">Valider</a>
+    <a class="btn btn-danger" href="{{ path('delete2',{'id':actionBenevole.idAction})}}">Supprimer</a>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <div class="navigation">
+         {{ knp_pagination_render(actionBenevoles) }}
+     </div>
+</div>
+    <br>    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+{% endblock %}
